@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Suite Stack - Digital Communications for Executives and Corporates</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon.png"/>
+    <script src="js/analytics.js"></script>
+
+    <!-- Essential Open Graph Meta Tags -->
+    <meta property="og:title" content="C-Suite Stack - Digital Communications for Executives">
+    <meta property="og:description" content="We support thought leadership that drives demand and builds long-term reputation with tested frameworks and purpose-built technology.">
+    <meta property="og:url" content="https://csuitestack.com/">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: -0.011em;
+            line-height: 1.65;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            padding: 0.75rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #22388a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #22388a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            letter-spacing: 0.01em;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #22388a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #4FA0DE;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Background image layer */
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(34, 56, 138, 0.80);
+            z-index: 2;
+        }
+
+        .hero-background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.9);
+        }
+
+        /* Content layer */
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 8rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.75rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: -0.008em;
+            line-height: 1.6;
+            opacity: 0.98;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-content .subtitle .highlight {
+            font-weight: 700;
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 0.15em 0.5em;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .expertise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expertise-section h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            color: #22388a;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .expertise-card {
+            background: #F8F9FA;
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(34, 56, 138, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .expertise-card:nth-child(1) {
+            background: #F2F1DF;
+        }
+
+        .expertise-card:nth-child(2) {
+            background: #E6E1F0;
+        }
+
+        .expertise-card:nth-child(3) {
+            background: #E8E8E8;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(34, 56, 138, 0.12), 0 4px 8px rgba(34, 56, 138, 0.08);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: #22388a;
+            margin-bottom: 0.75rem;
+        }
+
+        .expertise-card .subtitle {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60px;
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 50px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item img[src*="harmony"] {
+            filter: grayscale(100%) brightness(0.5);
+            opacity: 0.7;
+            max-height: 65px;
+        }
+
+        .logo-item img[src*="yum"] {
+            max-height: 65px;
+        }
+
+        .logo-item img[src*="statefarm"] {
+            max-height: 58px;
+        }
+
+        .logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .logo-item img[src*="harmony"]:hover {
+            filter: grayscale(100%) brightness(0) !important;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .platform-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            min-height: 50px;
+        }
+
+        .platform-item img {
+            max-width: 100%;
+            max-height: 40px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .platform-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .platform-item img[src*="linkedin-news"] {
+            max-height: 80px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            min-height: 60px;
+        }
+
+        .tech-item img {
+            max-width: 100%;
+            max-height: 35px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .linkedin-badge {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .linkedin-badge img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-badge img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Trending Topics Section */
+        .trending-section {
+            padding: 0 2rem 6rem;
+            background: #F2F1DF;
+            margin-top: 0;
+        }
+
+        .trending-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trending-section h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            color: #22388a;
+            margin-bottom: 1rem;
+            margin-top: 0;
+            padding-top: 4rem;
+            text-align: center;
+        }
+
+        /* Newsletter Subscribe Section */
+        .newsletter-subscribe {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding: 2rem 3rem;
+            background: #E8F4F8;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 2px solid #4FA0DE;
+            text-align: center;
+        }
+
+        .newsletter-subscribe h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #22388a;
+            margin-bottom: 0.75rem;
+        }
+
+        .newsletter-subscribe p {
+            font-size: 1rem;
+            letter-spacing: -0.008em;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-subscribe iframe {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: -0.008em;
+            line-height: 1.65;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(34, 56, 138, 0.08);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #22388a 0%, #4FA0DE 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(34, 56, 138, 0.12), 0 4px 8px rgba(34, 56, 138, 0.08);
+            border-color: rgba(79, 160, 222, 0.3);
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: #22388a;
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-card h3 a {
+            color: #22388a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card h3 a:hover {
+            color: #4FA0DE;
+        }
+
+        .blog-card p {
+            font-size: 1.0625rem;
+            letter-spacing: -0.008em;
+            line-height: 1.75;
+            color: #555;
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+
+        .read-more {
+            color: #22388a;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .read-more::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #4FA0DE;
+        }
+
+        .read-more:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 2rem;
+            background: #F8F9FA;
+            border-top: 2px solid #22388a;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-section h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            color: #22388a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(34, 56, 138, 0.08);
+            border-left: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(34, 56, 138, 0.12), 0 4px 8px rgba(34, 56, 138, 0.08);
+            border-left-color: #4FA0DE;
+            border-color: rgba(79, 160, 222, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: #22388a;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card p {
+            font-size: 1.0625rem;
+            letter-spacing: -0.008em;
+            line-height: 1.75;
+            color: #555;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.75rem;
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            line-height: 1.6;
+            color: #22388a;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -1rem;
+            left: -2rem;
+            color: #C3BBDA;
+            opacity: 0.5;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #22388a;
+            border: 2px solid #4FA0DE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .testimonial-info {
+            text-align: left;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #22388a;
+            font-size: 1.0625rem;
+        }
+
+        .testimonial-title {
+            font-size: 0.9375rem;
+            color: #666;
+        }
+
+        /* Social Proof Section */
+        .social-proof-section {
+            padding: 6rem 2rem;
+            background: #22388a;
+            color: white;
+            text-align: center;
+            border-top: 3px solid #4FA0DE;
+        }
+
+        .social-proof-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .social-proof-section h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .social-proof-section p {
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: -0.008em;
+            line-height: 1.65;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .leaders-chart {
+            margin-top: 3rem;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #22388a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero-content {
+                padding: 6rem 2rem 6rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .blog-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .testimonial-quote {
+                font-size: 1.4rem;
+            }
+
+            .social-proof-section h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .trending-section {
+                padding: 0 1rem 4rem;
+            }
+
+            .trending-section h2 {
+                margin-top: 3rem;
+            }
+
+            .services-section, .testimonial-section, .social-proof-section {
+                padding: 4rem 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .logo-text {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+    <script>
+        // Scroll Animation Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with fade-in classes
+            document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Navigation scroll behavior
+            const nav = document.querySelector('.nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="images/favicon.png" alt="C-Suite Stack Icon" class="logo-icon">
+                <span class="logo-text">C-Suite Stack</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#trending" class="nav-link">Insights</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <picture>
+                <source
+                    type="image/webp"
+                    srcset="images/hero-image.jpg"
+                    sizes="100vw">
+                <img
+                    src="images/hero-image.jpg"
+                    alt="Digital communications specialist portrait"
+                    class="hero-background-image"
+                    fetchpriority="high">
+            </picture>
+        </div>
+        <div class="hero-content">
+            <h1>Digital thought leadership for executives and corporates</h1>
+            <p class="subtitle">We support thought leadership that <span class="highlight">drives demand</span> and <span class="highlight">builds long-term reputation</span> with tested frameworks and purpose-built technology.</p>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="expertise-container">
+            <h2 class="fade-in">Our Focus on the C-Suite Means Deep Expertise</h2>
+
+            <div class="expertise-grid">
+                <!-- Depth of Experience -->
+                <div class="expertise-card fade-in">
+                    <h3>Depth of Experience Across Situations</h3>
+                    <p class="subtitle">We work with leaders at all stages of the thought leadership journey.</p>
+
+                    <div class="logo-grid">
+                        <div class="logo-item">
+                            <img src="images/logos/yum.svg" alt="Yum! Brands">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/harmony.png" alt="State Farm">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/statefarm.svg" alt="State Farm">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/abbvie.svg" alt="AbbVie">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/mars.svg" alt="Mars">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/dow.svg" alt="Dow">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/sibanye-stillwater.svg" alt="Sibanye Stillwater">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/logos/bcg.png" alt="BCG">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Relationships with Leading Platforms -->
+                <div class="expertise-card fade-in">
+                    <h3>Relationships with Leading Platforms</h3>
+                    <p class="subtitle">We're tapped into the latest editorial priorities and algorithm changes.</p>
+
+                    <div class="platform-grid">
+                        <div class="platform-item">
+                            <img src="images/logos/linkedin-news.png" alt="LinkedIn News">
+                        </div>
+                        <div class="platform-item">
+                            <img src="images/logos/meta.svg" alt="Meta">
+                        </div>
+                        <div class="platform-item">
+                            <img src="images/logos/youtube.svg" alt="YouTube">
+                        </div>
+                        <div class="platform-item">
+                            <img src="images/logos/medium.svg" alt="Medium">
+                        </div>
+                    </div>
+
+                    <div class="linkedin-badge">
+                        <img src="images/logos/Certified_Marketing_Insider.png" alt="LinkedIn Certified Marketing Insider Badge">
+                    </div>
+                </div>
+
+                <!-- Tech to Improve Workflows -->
+                <div class="expertise-card fade-in">
+                    <h3>Tech to Improve Workflows</h3>
+                    <p class="subtitle">Not to replace authentic voices. Easy workflows mean better storytelling.</p>
+
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <img src="images/logos/airtable.svg" alt="Airtable">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/claude.svg" alt="Claude">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/riverside.png" alt="Riverside">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/canva.svg" alt="Canva">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/tensorflow.svg" alt="TensorFlow">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/beehiiv.svg" alt="beehiiv">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/python.svg" alt="Python">
+                        </div>
+                        <div class="tech-item">
+                            <img src="images/logos/zapier.svg" alt="Zapier">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Topics Section -->
+    <section class="trending-section" id="trending">
+        <div class="trending-container">
+            <h2 class="fade-in">Trending topics</h2>
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <a href="blog/what-to-do-when-your-top-tier-placement-is-behind-a-paywall.html">
+                        <img src="images/paywall.png" alt="Paywall strategy" class="blog-card-image">
+                    </a>
+                    <div class="blog-card-content">
+                        <h3><a href="blog/what-to-do-when-your-top-tier-placement-is-behind-a-paywall.html">What to do when your top-tier placement is behind a paywall</a></h3>
+                        <p>Maximizing the reach of a top-tier executive placement behind a paywall presents a unique challenge for communicators. Here are three effective strategies to get creative with social media content.</p>
+                        <a href="blog/what-to-do-when-your-top-tier-placement-is-behind-a-paywall.html" class="read-more">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in">
+                    <a href="blog/how-a-yale-professor-went-viral-with-just-a-text-pdf.html">
+                        <img src="images/profchoi1.jpg" alt="Yale professor viral post" class="blog-card-image">
+                    </a>
+                    <div class="blog-card-content">
+                        <h3><a href="blog/how-a-yale-professor-went-viral-with-just-a-text-pdf.html">How a Yale professor went viral with just a text PDF</a></h3>
+                        <p>A Yale finance professor defied social media norms by going viral on LinkedIn with a text-only PDF of his course syllabus, proving that unique, valuable content can outperform flashy visuals in capturing attention.</p>
+                        <a href="blog/how-a-yale-professor-went-viral-with-just-a-text-pdf.html" class="read-more">Read more</a>
+                    </div>
+                </div>
+                <div class="blog-card fade-in">
+                    <a href="blog/three-ccos-raising-the-bar-on-digital-communications.html">
+                        <img src="images/3CCOs.png" alt="CCOs raising the bar" class="blog-card-image">
+                    </a>
+                    <div class="blog-card-content">
+                        <h3><a href="blog/three-ccos-raising-the-bar-on-digital-communications.html">Three CCOs raising the bar on digital thought leadership</a></h3>
+                        <p>Three innovative chief communications officers are redefining digital engagement on LinkedIn. Learn how they support their organizations with a voice of their own.</p>
+                        <a href="blog/three-ccos-raising-the-bar-on-digital-communications.html" class="read-more">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Subscribe -->
+            <div class="newsletter-subscribe fade-in">
+                <h3>Get tomorrow's corporate digital communications strategies today</h3>
+                <p>Join 500+ comms, public affairs and C-level leaders getting actionable tips delivered straight to their inbox.</p>
+                <iframe src="https://embeds.beehiiv.com/7405348a-fb60-4b95-8b7f-ac767daabab8?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <h2 class="fade-in">We Speak C-Suite</h2>
+            <p class="section-subtitle fade-in">Our services are built from a deep understanding of what communications functions need in a variety of public and investor relations situations.</p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>Digital Strategy</h3>
+                    <p>Ensure your corporate digital communications are grounded in business objectives.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Editorial Planning</h3>
+                    <p>Plan for key internal and external moments to focus efforts on capturing high-value assets.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Content Development</h3>
+                    <p>Transform raw assets into highly engaging content designed to match audience consumption habits.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Executive Social Media Training</h3>
+                    <p>Level up your team with hands-on coaching to build comfort and consistency.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Paid Amplification</h3>
+                    <p>Get targeted placements in social feeds with trusted voices and drive meaningful actions.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Analytics</h3>
+                    <p>Optimize posts before you hit "publish" with predictive modeling and understand what your audience values.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="testimonial-container fade-in">
+            <div class="testimonial-quote">
+                Delivered strong metrics and elevated the executives' visibility as industry thought leaders.
+            </div>
+            <div class="testimonial-author">
+                <div class="testimonial-icon">
+                   <img src="images/cco-icon.png" alt="Icon of Chief Communications Officer">
+                </div>
+                <div class="testimonial-info">
+                    <div class="testimonial-name">Global Communications Director</div>
+                    <div class="testimonial-title">Fortune 100 Company</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+        <div class="social-proof-container fade-in">
+            <img src="images/leaders-chart.png" alt="Rising bar graph with icons of leaders" class="leaders-chart">
+            <h2>100+ leaders and brands supported</h2>
+            <p>in our collective experience across industries including CPG, healthcare, industrials, logistics, pharmaceuticals, QSR and more.</p>
+            <a href="mailto:prash@csuitestack.com" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> C-Suite Stack LLC. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
